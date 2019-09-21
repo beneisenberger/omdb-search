@@ -1,0 +1,49 @@
+<h1 class="center">Movie Database</h1>
+
+<div class="searchFunction">
+
+    <h2 class="center">Search Function</h2>
+
+    <div class="margin">
+        <label class="" for="title">Title: </label>
+        <input class="" type="text" [(ngModel)]="title" id="title">
+    </div>
+
+    <div class="margin">
+        <label class="" for="name">Year: </label>
+        <input class="" type="text" [(ngModel)]="year" id="year">
+    </div>
+
+    <div class="margin">
+        <label class="" for="type">Type: </label>
+        <select class="" name="type" [(ngModel)]="type" id="type">
+            <optgroup label="Types">
+                <option value="movie">Movie</option>
+                <option value="series">TV Series</option>
+                <option value="episode">Episode</option>
+            </optgroup>
+        </select>
+    </div>
+
+    <div class="margin">
+        <input id="submit" class="submit" type="submit" value="submit" (click)="search()">
+    </div>
+
+</div>
+
+<h2 class="center">Search Results</h2>
+
+<h2 id="searchResult"></h2>
+
+<main id="main" class="flex flexRow">
+    <div class="results" *ngFor="let result of results">
+
+        <img [src]="result.Poster">
+        <p>Title: {{result.Title}}</p>
+        <p>Type: {{result.Type}}</p>
+        <p>Year: {{result.Year}}</p>
+        <p>IMDB Page: https://imdb.com/{{result.imdbID}}</p>
+        
+    </div>
+</main>
+
